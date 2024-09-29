@@ -121,3 +121,118 @@ const Content = ... {
 ```
 
 Nuestra aplicación pasa información de una manera bastante primitiva en este momento, ya que se basa en variables individuales. Esta situación mejorará pronto en la parte 2, pero antes de eso, vamos a la parte 1b para aprender acerca de JavaScript.
+
+# Ejercicios 1.3.-1.5.
+
+Seguimos construyendo la aplicación en la que empezamos a trabajar en los ejercicios anteriores. Puedes escribir el código en el mismo proyecto, ya que solo estamos interesados en el estado final de la aplicación enviada.
+
+Pro-tip: puedes tener problemas cuando se trata de la estructura de los props que reciben los componentes. Una buena manera de aclarar las cosas es imprimiendo los props en la consola, por ejemplo, de la siguiente manera:
+
+```jsx
+const Header = (props) => {
+  console.log(props)
+  return <h1>{props.course}</h1>
+}
+```
+
+Si y cuando recibes un mensaje de error
+
+Objects are not valid as a React child
+
+ten en cuenta las cosas dichas aquí.
+
+## 1.3: Información del Curso, paso 3
+
+Avancemos para usar objetos en nuestra aplicación. Modifica las definiciones de las variables del componente App de la siguiente manera y también refactoriza la aplicación para que siga funcionando:
+
+```jsx
+const App = () => {
+  const course = 'Half Stack application development'
+  const part1 = {
+    name: 'Fundamentals of React',
+    exercises: 10
+  }
+  const part2 = {
+    name: 'Using props to pass data',
+    exercises: 7
+  }
+  const part3 = {
+    name: 'State of a component',
+    exercises: 14
+  }
+
+  return <div>...</div>
+}
+```
+
+## 1.4: Información del Curso paso 4
+
+Coloca los objetos en un array. Modifica las definiciones de las variables de App de la siguiente forma y modifica las otras partes de la aplicación que sean necesarias para que continue funcionando:
+
+```jsx
+const App = () => {
+  const course = 'Half Stack application development'
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
+
+  return <div>...</div>
+}
+```
+
+Nota: en este punto puedes asumir que siempre hay tres elementos, por lo que no es necesario pasar por los arrays usando bucles. Volveremos al tema de la renderización de componentes basados en elementos dentro de arrays con una exploración más profunda en la siguiente parte del curso.
+
+Sin embargo, no pases diferentes objetos como props separados del componente App a los componentes Content y Total. En su lugar, pásalos directamente como un array:
+
+```jsx
+const App = () => {
+  // definiciones de const
+
+  return (
+    <div>
+      <Header course={course} />
+      <Content parts={parts} />
+      <Total parts={parts} />
+    </div>
+  )
+}
+```
+
+## 1.5: Información del Curso paso 5
+
+Llevemos los cambios un paso más allá. Cambia el curso y sus partes a un solo objeto JavaScript. Arregla todo lo que se rompa.
+
+```jsx
+const App = () => {
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ]
+  }
+
+  return <div>...</div>
+}
+```
