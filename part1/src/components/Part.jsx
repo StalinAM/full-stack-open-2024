@@ -1,6 +1,6 @@
 function Part({ part, exercise }) {
   return (
-    <p>
+    <p key={part}>
       {part} {exercise}
     </p>
   )
