@@ -13,10 +13,23 @@ function App() {
     'The only way to go fast, is to go well.'
   ]
   const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
+
   return (
     <>
-      <h1>{anecdotes[selected]}</h1>
+      <h2>Anecdote of the day</h2>
+      <p>{anecdotes[selected]}</p>
+
+      <Button
+        name={'vote'}
+        index={selected}
+        state={votes}
+        setState={setVotes}
+      />
       <Button name={'next anecdote'} state={selected} setState={setSelected} />
+      <h2>anecdote with most votes</h2>
+      <p>{anecdotes[votes.indexOf(Math.max(...votes))]}</p>
+      <p>has {Math.max(...votes)} votes</p>
     </>
   )
 }
