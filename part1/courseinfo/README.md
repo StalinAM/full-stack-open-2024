@@ -18,7 +18,7 @@ unicafe
 anecdotes
 part2
 phonebook
-countriescopy
+countries
 ```
 
 Mira este repositorio de ejemplo para el envío de ejercicios!
