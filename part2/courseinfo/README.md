@@ -86,8 +86,6 @@ const total = parts.reduce((s, p) => {
 })
 ```
 
-¿No funciona? : Utiliza tu motor de búsqueda para buscar cómo se utiliza reduce en un Array de Objetos.
-
 # 2.4: Información del curso paso 9
 
 Ampliemos nuestra aplicación para permitir un número arbitrario de cursos:
